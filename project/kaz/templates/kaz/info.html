@@ -1,0 +1,35 @@
+{% extends 'kaz/main.html' %}
+
+{% block content %}
+
+    {% if info %}
+      {% for x in info %}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Tour: {{ x.tour_name }}</h5>
+    <p class="card-text">Place: {{ x.tour_inf }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Time: {{ x.time }}</li>
+    <li class="list-group-item">Price: {{ x.tour_price }}</li>
+    <li class="list-group-item">Tour id: {{ x.tour_id }}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'kaz:registration' %}" class="card-link">Go</a>
+  </div>
+</div>
+
+
+
+
+
+      {% endfor %}
+
+      {% else %}
+        <p> We don't have any information! </p>
+    {% endif %}
+
+
+
+{% endblock %}

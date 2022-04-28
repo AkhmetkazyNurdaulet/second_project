@@ -1,0 +1,33 @@
+{% extends 'kaz/main.html' %}
+
+{% block content %}
+
+    {% if classes %}
+      {% for x in classes %}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ x.name }}</h5>
+    <p class="card-text">{{ x.about }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ x.type_of_class }}</li>
+    <li class="list-group-item">{{ x.special_meal }}</li>
+    <li class="list-group-item">{{ x.snacks }}</li>
+    <li class="list-group-item">{{ x.drinks }}</li>
+    <li class="list-group-item">{{ x.chargers }}</li>
+    <li class="list-group-item">{{ x.local_wifi }}</li>
+    <li class="list-group-item">{{ x.blanket }}</li>
+    <li class="list-group-item">{{ x.price }}</li>
+  </ul>
+</div>
+
+       {% endfor %}
+
+            {% else %}
+        <p> We don't have any information! </p>
+            {% endif %}
+
+
+
+{% endblock %}

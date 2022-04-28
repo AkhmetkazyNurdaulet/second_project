@@ -1,0 +1,33 @@
+{% extends 'kaz/main.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+    {% if tours %}
+      {% for x in tours %}
+
+        <div class="card-deck">
+  <div class="card">
+    {% load static %} <img src="{% static 'kaz/images/medeo.jpeg' %}" class="card-img-top" alt="" style="width:505px; height:330px;" >
+    <div class="card-body">
+      <h5 class="card-title">{{ x.tour_name }}</h5>
+      <p class="card-text">{{ x.tour_inf }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Unique tour number is: {{ x.tour_id }}</small>
+    </div>
+  </div>
+        </div>
+
+      {% endfor %}
+
+      {% else %}
+        <p> We don't have any information! </p>
+    {% endif %}
+
+
+
+{% endblock %}

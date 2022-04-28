@@ -1,0 +1,15 @@
+{% extends 'kaz/main.html' %}
+
+{% block content %}
+<div >
+<h3>Fill the form to take your place in tour</h3>
+
+<form action="{% url 'kaz:registration' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Registrate</button>
+</form>
+
+</div>
+
+{% endblock %}

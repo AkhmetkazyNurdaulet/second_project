@@ -1,0 +1,27 @@
+{% extends 'kaz/main.html' %}
+
+{% block content %}
+
+    {% if tourists %}
+      {% for x in tourists %}
+
+<div class="card tourist" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ x.name }}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ x.email }}</li>
+    <li class="list-group-item">{{ x.tour_id }}</li>
+  </ul>
+    <a href="update/{{post.id}}" class="btn btn-warning" id= '{{post.id}}'>edit</a>
+    <a href="delete/{{post.id}}" class="btn btn-danger" id= '{{post.id}}'>delete</a>
+</div>
+      {% endfor %}
+
+      {% else %}
+        <p> We don't have any information! </p>
+    {% endif %}
+
+
+
+{% endblock %}
